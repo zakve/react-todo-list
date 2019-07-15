@@ -1,4 +1,10 @@
+# React TO-DO list using React and TypeScript
+
+## Instalation
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+`npm i typescript @types/node @types/react @types/react-dom` 
 
 ## Available Scripts
 
