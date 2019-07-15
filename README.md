@@ -1,4 +1,4 @@
-# React TO-DO list using React and TypeScript
+# Basic TO-DO list using React and TypeScript
 
 ## Instalation
 
