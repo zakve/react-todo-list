@@ -34,12 +34,26 @@ const useStyles = makeStyles({
 });
 
 function App() {
+  type FormElem = React.FormEvent<HTMLFormElement>;
+  interface ITodo {
+    text: string
+    complete: boolean
+  }
 
   const [value, setValue] = React.useState<string>('');
-  const handleSumbit = (e: React.FormEvent<HTMLFormElement>): void => {
+  const [todos, setTodos] = React.useState<ITodo[]>([]);
+
+  const handleSumbit = (e: FormElem): void => {
     e.preventDefault()
+    addTodo(value)
     setValue('')
   }
+
+  const addTodo = (text: string) => {
+    const newTodos: ITodo[] = [...todos, { text, complete: false }]
+    setTodos(newTodos)
+  }
+
   const classes = useStyles();
 
   return (
