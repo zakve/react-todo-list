@@ -34,6 +34,12 @@ const useStyles = makeStyles({
 });
 
 function App() {
+
+  const [value, setValue] = React.useState<string>('');
+  const handleSumbit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault()
+    setValue('')
+  }
   const classes = useStyles();
 
   return (
@@ -43,14 +49,17 @@ function App() {
         <Typography variant="h1" component="h2" gutterBottom>
           TODO list
       </Typography>
-        <form action="">
+        <form onSubmit={handleSumbit}>
           <Paper className={classes.root}>
             <InputBase
+              required
               className={classes.input}
+              value={value}
               placeholder="Add new task"
+              onChange={e => setValue(e.target.value)}
             />
             <Divider className={classes.divider} />
-            <IconButton color="primary" className={classes.iconButton} aria-label="Add">
+            <IconButton type="submit" color="primary" className={classes.iconButton} aria-label="Add">
               <Add />
             </IconButton>
           </Paper>
