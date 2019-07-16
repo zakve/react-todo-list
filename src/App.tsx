@@ -7,17 +7,28 @@ import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import { Add } from '@material-ui/icons';
+// ICONS
+import { Add, Delete } from '@material-ui/icons';
+
+//LIST
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
+import Avatar from '@material-ui/core/Avatar';
+
 import { makeStyles } from '@material-ui/core/styles';
 
 import './App.css';
 
 const useStyles = makeStyles({
   root: {
+    textAlign: 'center',
     padding: '2px 4px',
     display: 'flex',
     alignItems: 'center',
-    width: 400,
   },
   input: {
     marginLeft: 8,
@@ -60,7 +71,7 @@ function App() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="sm">
-        <Typography variant="h1" component="h2" gutterBottom>
+        <Typography variant="h1" component="h2" align="center">
           TODO list
       </Typography>
         <form onSubmit={handleSumbit}>
@@ -78,6 +89,27 @@ function App() {
             </IconButton>
           </Paper>
         </form>
+
+        <List>
+          {todos.map((todo: ITodo, index: number) => {
+            return (
+              <ListItem key={index}>
+                <ListItemAvatar>
+                  <Avatar>
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                  primary={todo.text}
+                />
+                <ListItemSecondaryAction>
+                  <IconButton edge="end" aria-label="Delete">
+                    <Delete />
+                  </IconButton>
+                </ListItemSecondaryAction>
+              </ListItem>
+            )
+          })}
+        </List>
       </Container>
     </React.Fragment>
   );
