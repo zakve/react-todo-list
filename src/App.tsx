@@ -98,11 +98,10 @@ function App() {
         <List>
           {todos.map((todo: ITodo, index: number) => {
             return (
-              <ListItem key={index}>
+              <ListItem key={index} button onClick={() => completeTodo(index)}>
                 <ListItemIcon>
                   <Checkbox
                     checked={todo.complete}
-                    onClick={() => completeTodo(index)}
                   />
                 </ListItemIcon>
                 <ListItemText
