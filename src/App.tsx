@@ -70,6 +70,12 @@ function App() {
     setTodos(newTodos)
   }
 
+  const removeTodo = (index: number): void => {
+    const newTodos: ITodo[] = [...todos]
+    newTodos.splice(index, 1)
+    setTodos(newTodos)
+  }
+
   const classes = useStyles();
 
   return (
@@ -109,7 +115,7 @@ function App() {
                 />
                 <ListItemSecondaryAction>
                   <IconButton edge="end" aria-label="Delete">
-                    <Delete />
+                    <Delete onClick={() => removeTodo(index)} />
                   </IconButton>
                 </ListItemSecondaryAction>
               </ListItem>
