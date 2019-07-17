@@ -1,4 +1,14 @@
+# Basic TO-DO list using React and TypeScript
+
+## Instalation
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+A step by step 
+1. `npx create-react-app my-app`
+2. `npm i typescript @types/node @types/react @types/react-dom` 
+3. Change `App.js` to `App.tsx`
+4. Add Material UI `npm i @material-ui/core` and `npm i @material-ui/icons`
 
 ## Available Scripts
 
