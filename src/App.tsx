@@ -13,11 +13,10 @@ import { Add, Delete } from '@material-ui/icons';
 //LIST
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
-import Avatar from '@material-ui/core/Avatar';
+import Checkbox from '@material-ui/core/Checkbox';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -60,8 +59,14 @@ function App() {
     setValue('')
   }
 
-  const addTodo = (text: string) => {
+  const addTodo = (text: string): void => {
     const newTodos: ITodo[] = [...todos, { text, complete: false }]
+    setTodos(newTodos)
+  }
+
+  const completeTodo = (index: number): void => {
+    const newTodos: ITodo[] = [...todos]
+    newTodos[index].complete = !newTodos[index].complete
     setTodos(newTodos)
   }
 
@@ -94,10 +99,12 @@ function App() {
           {todos.map((todo: ITodo, index: number) => {
             return (
               <ListItem key={index}>
-                <ListItemAvatar>
-                  <Avatar>
-                  </Avatar>
-                </ListItemAvatar>
+                <ListItemIcon>
+                  <Checkbox
+                    checked={todo.complete}
+                    onClick={() => completeTodo(index)}
+                  />
+                </ListItemIcon>
                 <ListItemText
                   primary={todo.text}
                 />
