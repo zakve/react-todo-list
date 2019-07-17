@@ -104,7 +104,7 @@ function App() {
                     checked={todo.complete}
                   />
                 </ListItemIcon>
-                <ListItemText
+                <ListItemText style={{ textDecoration: todo.complete ? 'line-through' : '' }}
                   primary={todo.text}
                 />
                 <ListItemSecondaryAction>
